@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -o errexit
+set -e  # Works in both bash and sh
 
 pip install -r requirements.txt
 
