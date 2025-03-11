@@ -8,22 +8,29 @@ def index(request):
     return render(request, 'index.html')
 
 def delete_records(request):
-    return render(request, 'delete_records.html')
+    titles = Titles.objects.all()  # Fetch all titles
+    headings = Section1.objects.all()  # Fetch all headings
+    activities = Section2.objects.all()  # Fetch all activities
+    return render(request, 'delete_records.html', {
+        'titles': titles,
+        'headings': headings,
+        'activities': activities,
+    })
 
 def delete_titles(request, record_id):
-    title = get_object_or_404(Titles, id=record_id)  # Fetch the title record
-    title.delete()  # Delete the record
+    title = get_object_or_404(Titles, id=record_id)
+    title.delete()
     return redirect('og')  # Redirect to a success page or list view
 
 def delete_headings(request, record_id):
-    heading = get_object_or_404(Section1, id=record_id)  # Fetch the heading record
-    heading.delete()  # Delete the record
+    heading = get_object_or_404(Section1, id=record_id)
+    heading.delete()
     return redirect('og')  # Redirect to a success page or list view
 
 def delete_activities(request, record_id):
-    activity = get_object_or_404(Section2, id=record_id)  # Fetch the activity record
-    activity.delete()  # Delete the record
-    return redirect('og')  # Redirect to a success page or list view
+    activity = get_object_or_404(Section2, id=record_id)
+    activity.delete()
+    return redirect('og')  # Redirect to a suc
 
 def og(request):
     data = Section1.objects.all()
