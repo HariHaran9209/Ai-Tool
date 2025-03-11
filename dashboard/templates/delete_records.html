@@ -18,6 +18,8 @@
                     <button type="submit">Delete</button>
                 </form>
             </li>
+        {% empty %}
+            <li>No titles available.</li>
         {% endfor %}
     </ul>
 
@@ -31,6 +33,8 @@
                     <button type="submit">Delete</button>
                 </form>
             </li>
+        {% empty %}
+            <li>No headings available.</li>
         {% endfor %}
     </ul>
 
@@ -44,6 +48,8 @@
                     <button type="submit">Delete</button>
                 </form>
             </li>
+        {% empty %}
+            <li>No activities available.</li>
         {% endfor %}
     </ul>
 </body>
