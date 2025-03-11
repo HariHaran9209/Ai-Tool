@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import *
 from django.core.exceptions import ValidationError
@@ -6,6 +6,21 @@ from django.core.exceptions import ValidationError
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
+
+def delete_titles(request, record_id):
+    records = get_object_or_404(Titles, id=record_id)
+    record.delete()
+    return redirect('og')  # Redirect to a success page or list view
+
+def delete_headings(request, record_id):
+    records = get_object_or_404(Section1, id=record_id)
+    record.delete()
+    return redirect('og')  # Redirect to a success page or list view
+
+def delete_activities(request, record_id):
+    records = get_object_or_404(Section2, id=record_id)
+    record.delete()
+    return redirect('og')  # Redirect to a success page or list view
 
 def og(request):
     data = Section1.objects.all()
