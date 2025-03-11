@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background: grey;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #2ebf91;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], input[type="date"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="date"]:focus {
+            border-color: #2ebf91;
+            outline: none;
+        }
+
+        .form-group-checkbox {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group-checkbox input {
+            margin-right: 0.5rem;
+        }
+
+        .form-group-checkbox label {
+            margin: 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: #2ebf91;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background: #249d7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add Bill</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title1_name">Title1: </label>
+                <input type="text" id="title1_name" name="title1_name" placeholder="Enter your Title1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="title2_name">Title2: </label>
+                <input type="text" id="title2_name" name="title2_name" placeholder="Enter your Title2" required>
+            </div> 
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
