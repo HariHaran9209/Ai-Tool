@@ -7,6 +7,9 @@ from django.core.exceptions import ValidationError
 def index(request):
     return render(request, 'index.html')
 
+def delete_records(request):
+    return render(request, 'delete_records.html')
+
 def delete_titles(request, record_id):
     records = get_object_or_404(Titles, id=record_id)
     record.delete()
