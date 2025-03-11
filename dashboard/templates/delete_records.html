@@ -3,25 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Record</title>
+    <title>Delete Records</title>
 </head>
 <body>
-    <h1>Records</h1>
+    <h1>Delete Records</h1>
+
+    <h2>Titles</h2>
     <ul>
-        {% for record in records %}
+        {% for title in titles %}
             <li>
-                {{ record.name }} 
-                <form action="{% url 'delete_titles' record.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                {{ title.name }} 
+                <form action="{% url 'delete_titles' title.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this title?');">
                     {% csrf_token %}
-                    <button type="submit">Delete Titles</button>
+                    <button type="submit">Delete</button>
                 </form>
-                <form action="{% url 'delete_headings' record.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this record?');">
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Headings</h2>
+    <ul>
+        {% for heading in headings %}
+            <li>
+                {{ heading.name }} 
+                <form action="{% url 'delete_headings' heading.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this heading?');">
                     {% csrf_token %}
-                    <button type="submit">Delete Headings</button>
+                    <button type="submit">Delete</button>
                 </form>
-                <form action="{% url 'delete_activities' record.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this record?');">
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Activities</h2>
+    <ul>
+        {% for activity in activities %}
+            <li>
+                {{ activity.name }} 
+                <form action="{% url 'delete_activities' activity.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this activity?');">
                     {% csrf_token %}
-                    <button type="submit">Delete Activities</button>
+                    <button type="submit">Delete</button>
                 </form>
             </li>
         {% endfor %}
