@@ -11,18 +11,18 @@ def delete_records(request):
     return render(request, 'delete_records.html')
 
 def delete_titles(request, record_id):
-    records = get_object_or_404(Titles, id=record_id)
-    record.delete()
+    title = get_object_or_404(Titles, id=record_id)  # Fetch the title record
+    title.delete()  # Delete the record
     return redirect('og')  # Redirect to a success page or list view
 
 def delete_headings(request, record_id):
-    records = get_object_or_404(Section1, id=record_id)
-    record.delete()
+    heading = get_object_or_404(Section1, id=record_id)  # Fetch the heading record
+    heading.delete()  # Delete the record
     return redirect('og')  # Redirect to a success page or list view
 
 def delete_activities(request, record_id):
-    records = get_object_or_404(Section2, id=record_id)
-    record.delete()
+    activity = get_object_or_404(Section2, id=record_id)  # Fetch the activity record
+    activity.delete()  # Delete the record
     return redirect('og')  # Redirect to a success page or list view
 
 def og(request):
